@@ -40,7 +40,7 @@ The LTER network (funded by NSF) maintains a [Data Access policy](https://lterne
 
 Recently, many of the resources on curating and publishing data and metadata packages has been pushed to [EDI](https://environmentaldatainitiative.org). EDI's "5 Phases of data publishing" is a large collection of resources, but in particular, [Phase 3](https://environmentaldatainitiative.org/resources/five-phases-of-data-publishing/phase-3/) provides useful information on EML metadata best practices like the [EML Best Practices V3 document](https://environmentaldatainitiative.files.wordpress.com/2017/11/emlbestpractices-v3.pdf).
 
-The EML specification is defined and maintained by the [Knowledge Network for Biocomplexity]()https://knb.ecoinformatics.org). They provide the EML Schema and additional (human readable) information here:
+The EML specification is defined and maintained by the [Knowledge Network for Biocomplexity](https://knb.ecoinformatics.org). They provide the EML Schema and additional (human readable) information here:
 
 <https://knb.ecoinformatics.org/external//emlparser/docs/index.html>
 
