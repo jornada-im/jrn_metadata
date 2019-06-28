@@ -29,7 +29,9 @@ Note that EML documents are hierarchical. The root element is \<eml:eml\> (denot
 
 The sections below correspond to elements under the \<dataset\> element of a Jornada Basin LTER EML document. They appear in roughly the order they should in a real EML document. 
 
-## \<title\>
+## \<title\>\*
+
+**\* This is a required element.**
 
 The \<title\> element should contain a descriptive title that includes type of data collected, geographic location, and time range of the data (what, where, when). In general we use "Jornada" in some form as part of the geographic description. It may also be useful to include a project name or abbreviation if the package is part of a collection from a large project (NEAT, SMES, etc).
 
@@ -37,11 +39,11 @@ The \<title\> element should contain a descriptive title that includes type of d
 
 There are a number of elements in this category grouped together here. They normally appear within the \<dataset\> element (`/eml:eml/dataset/creator`, `/eml:eml/dataset/contact`, etc)
 
-At least one \<contact\> element must be supplied in every EML document. All EML documents should usually have at least one \<creator\> element, but exceptions can be made if this information has been lost in very old Jornada data packags.
+At least one \<contact\> element must be supplied in every EML document. All EML documents should have at least one person in a \<creator\> element, but exceptions can be made if this information has been lost in very old Jornada data packags.
 
-### \<contact\>
+### \<contact\>\*
 
-**This is a required element.**
+**\* This is a required element.**
 
 Contacts are people (or positions, like Data Manager)  that should be contacted for access to, or information about, the data package. For Jornada data packages this should include:
 
@@ -52,7 +54,9 @@ JRN LTER defines the "Current responsible investigator" as the LTER principal in
 
 No other contacts are defined.
 
-### \<creator\>
+### \<creator\>\*
+
+**\*This is a required element.**
 
 Creators are people with direct intellectual contributions to the data package and so could include PIs, postdocs, students, and other researchers. There can be multiple <creator> elements in a Jornada EML document. These should include:
 
@@ -60,6 +64,8 @@ Creators are people with direct intellectual contributions to the data package a
 * Former responsible PIs
 * Current responsible PIs
 * PostDocs, grad students, and other researchers (??? need to verify this)
+
+If for some reason the creator, or originating PI, for the data package is unknown, it is acceptable to list the Jornada Basin LTER as the organization in this element.
 
 ### Other personnel and organization elements
 
