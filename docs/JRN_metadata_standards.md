@@ -1,53 +1,60 @@
 ---
 title: Jornada Metadata Standards for EML Creation
 author: The Information Management Team
-date: 27 June 2019
+date: 28 June 2019
 ...
 
 **If you edit this document please track your changes and send to Greg Maurer (gmaurer.jrn.lter@gmail.com).**
 
+**Notes about things that need to be expanded or verified are marked with "???"**
+
 # Introduction
 
-This document defines metadata standards to use when creating EML files for Jornada Basin LTER research data packages. These standards are under active development as we revamp our data catalog, but they are essentially derived from this reference document:
+This document defines metadata standards to use when creating or revising EML files for Jornada Basin LTER research data packages. These standards are under active development as we revamp our data catalog, but they are essentially derived from this reference document:
 
 <https://environmentaldatainitiative.files.wordpress.com/2017/11/emlbestpractices-v3.pdf>
 
 with modifications to suit the Jornada Basin LTER and its researchers.
 
-When revising earlier EML documents, do your best not to lose the metadata they contain. Make sure a copy is archived somewhere (like EDI, if possible) so that metadata are not lost. 
+When revising earlier EML documents, do your best not to lose the metadata they contain. Make sure a copy is archived somewhere (like EDI, if possible) so that metadata are not lost.
 
-Note that EML documents are heirarchical. The top level element is `eml:eml`, and within that are contained 3 elements: `access`, `dataset`, and `additional_metadata`. The metadata standards in this document refer to the `dataset` element of your EML file only. Maybe we'll add standards on `access` and `additional_metadata` at a later time.
+## Using this document
 
-# Metadata standards by EML <dataset> element
+The metadata standards in this document are structured and formatted similarly to an EML document. Named EML elements are surrounded by angle brackets, and there are headings for most important elements. At the Jornada Basin LTER, a variety of tools are being used to create EML documents during the data packaging process (EMLassemblyline, GCE Toolbox +, etc.). Notes about using these tools to create each EML element are present in the relevant section of this document (???**Add these in as you edit**).
+
+Note that EML documents are hierarchical. The root element is \<eml:eml\> (denoted by the path `/eml:eml`). Below the EML root element are 3 elements, \<access\>, \<dataset\>, and \<additional_metadata\> (paths `/eml:eml/access`,  `/eml:eml/dataset`, and `/eml:eml/additional_metadata`). This document contains metadata standards for elements under the \<dataset\> element of Jornada EML files only. We may add standards for EML \<access\> and \<additional_metadata\> elements at a later time.
 
 
-## `title`
+# Metadata standards for EML \<dataset\> elements
 
-Descriptive title that includes type of data collected, geographic location, and time range of the data (what, where, when). In general we use "Jornada" in some form as part of the geographic description. It may also be useful to include a project name or abbreviation if the package is part of a collection from a large project (NEAT, SMES, etc).
+The sections below correspond to elements under the \<dataset\> element of a Jornada Basin LTER EML document. They appear in roughly the order they should in a real EML document. 
 
-## Personnel and organization elements (`creator`, `contact`, etc.)
+## \<title\>
 
-There are a number of elements in this category grouped together here. They normally appear within the dataset element (/eml:eml/dataset/creator, /eml:eml/dataset/contact, etc)
+The \<title\> element should contain a descriptive title that includes type of data collected, geographic location, and time range of the data (what, where, when). In general we use "Jornada" in some form as part of the geographic description. It may also be useful to include a project name or abbreviation if the package is part of a collection from a large project (NEAT, SMES, etc).
 
-At least one `contact` entity must be supplied in every EML document. All EML documents should usually have at least one `creator` entity, but exceptions can be made if this information has been lost in very old Jornada datasets.
+## Personnel and organization elements (\<creator\>, \<contact\>, etc.)
 
-### `contact`
+There are a number of elements in this category grouped together here. They normally appear within the dataset element (`/eml:eml/dataset/creator`, `/eml:eml/dataset/contact`, etc)
+
+At least one \<contact\> element must be supplied in every EML document. All EML documents should usually have at least one \<creator\> element, but exceptions can be made if this information has been lost in very old Jornada datasets.
+
+### \<contact\>
 
 **This is a required element.**
 
- Contacts are people (or positions, like Data Manager)  that should be contacted for access to, or information about, the data package. For Jornada data packages this should include:
+Contacts are people (or positions, like Data Manager)  that should be contacted for access to, or information about, the data package. For Jornada data packages this should include:
 
 * The "Current responsible investigator" (if available)
 * The JRN LTER Information Manager (datamanager.jrn.lter@gmail.com)
 
-JRN LTER defines the "Current responsible investigator" as the LTER principal investigator who curates a study and its associated data package(s). For data packages without a "current responsible PI", John Anderson has historically been listed as a `contact` with this role. When updating one of these packages, ask John if he would like to remain in this position. If not he may be removedand it is acceptable to list only the Data Manager.
+JRN LTER defines the "Current responsible investigator" as the LTER principal investigator who curates a study and its associated data package(s). For data packages without a "current responsible PI", John Anderson has historically been listed with this role under \<contact\>. When updating one of these packages, ask John if he would like to remain in this position. If not, he may be removed and it is acceptable to list only the Data Manager.
 
 No other contacts are defined.
 
+### \<creator\>
 
-### `creator`
-
-Creators are people with direct intellectual contributions to the data package and so could include PIs, postdocs, students, and other researchers. There can be multiple <creator> elements in a Jornda EML document. These should include:
+Creators are people with direct intellectual contributions to the data package and so could include PIs, postdocs, students, and other researchers. There can be multiple <creator> elements in a Jornada EML document. These should include:
 
 * Original PIs
 * Former responsible PIs
@@ -56,77 +63,77 @@ Creators are people with direct intellectual contributions to the data package a
 
 ### Other personnel and organization elements
 
-Other personnel and organization elements, such as `metadataProvider`, `associatedParty`, or `publisher`, can be defined in eml and have been included in Jornada Basin LTER EML documents. There is no standardized policy for these yet, so when updating such packages, preserve these elements if possible.
+Other personnel and organization elements, such as \<metadataProvider\>, \<associatedParty\>, or \<publisher\>, can be defined in EML and have been included in Jornada Basin LTER data packages. There is no standardized policy for these yet, so when updating such packages, preserve these elements if possible.
 
-## `pubDate`
+## \<pubDate\>
 
 No JRN policy yet.
 
-## `abstract`
+## \<abstract\>
 
 A descriptive abstract of the data package, with enough context for a user to decide whether it is useful to them, should be included here.
 
 **Keep in mind that package abstracts are used in full-text searches**
 
-## `keywordSet`
+## \<keywordSet\>
 
-Multiple `keywordSet` elements can be defined. Optionally they may be labeled with the specific vocabulary they are identified from using the `keywordThesaurus` tag. The Jornada Basin LTER uses these keyword thesauri:
+Multiple \<keywordSet\> elements can be defined. Optionally they may be labeled with a specific vocabulary they are taken from using the \<keywordThesaurus\> tag. The Jornada Basin LTER uses these keyword thesauri:
 
 * [LTER Controlled Vocabulary](http://vocab.lternet.edu/vocab/vocab/index.php) - required to describe the subject matter of each data package
 * [Jornada specific thesauri](https://github.com/jornada-im/jrn_metadata_standards) - still in development
-* EML creators can also define keywords independent of these vocabularies (no `keywordThesaurus` tag.
+* EML creators can also define keywords independent of these vocabularies (no \<keywordThesaurus\> tag).
 
-## `intellectualRights`
+## \<intellectualRights\>
 
 The Jornada Basin LTER uses the CC-BY attribution license, appended with the LTER network's [suggested data access policy text](https://lternet.edu/data-access-policy/). There is a template in EMLassemblyline for this.
 
-## `coverage`
+## \<coverage\>
 
-A `coverage` element can be defined at multiple levels in the EML document: the dataset level (`/eml:eml/dataset/coverage`), data entity level (`eml:eml/dataset/[entity]/coverage`), within the methods (`eml:eml/dataset/methods/sampling/studyExtent/coverage)`, etc. Within each `coverage` element, three types of coverage are possible - `geographicCoverage`, `taxonomicCoverage`, and `temporalCoverage`.
+A \<coverage\> element can be defined at multiple levels in the EML document: for a \<dataset\> element (`/eml:eml/dataset/coverage`), for a data entity (`eml:eml/dataset/[entity]/coverage`), within a \<methods\> element (`eml:eml/dataset/methods/sampling/studyExtent/coverage`), etc. Within each \<coverage\> element, three types of coverage elements can be defined - \<geographicCoverage\>, \<taxonomicCoverage\>, and \<temporalCoverage\>.
 
-For now, at JRN LTER, we are focusing on providing adequate `coverage` metadata for the full dataset, not really at finer details. That is what is described below
+For now, at JRN LTER, we are focusing on providing adequate \<coverage\> metadata at the \<dataset\> element level, and there aren't known standards for elements below this level (???). This is described in the sections below.
 
-### `geographicCoverage`
+### \<geographicCoverage\>
 
-Coordinates for Jornada data packages are obfuscated (deliberately, due to security concerns) in most cases.
+Coordinates for Jornada data packages are obfuscated (deliberately, due to security concerns) in most cases. How, and how much, to provide spatial data is a matter of debate at JRN LTER. The general practice is to provide one or more bounding boxes surrounding the research sites in a data package, but these bounding boxes should not be detailed enough to allow casual visitors to EDI to identify sensitive research sites or instrumentation. Some packages, however, already have finer details in the \<geographicCoverage\> elements. In these cases the person packaging the data should probably preserve this metadata, and has some discretion on how to proceed after consulting with PIs. The general guideline for this element is outlined below.
 
-At the `dataset` level define at least one bounding box that includes all research locations for all data entities in the package. When possible, multiple bounding boxes may be provided to describe multiple study or sampling areas (these may be associated with locational variables in a data entity if you are clever about it).
+For \<dataset\> elements, define at least one \<geographicCoverage\> element. This \<geographicCoverage\> element should contain at least one bounding box that encloses all research locations for all data entities in the package. When possible, multiple bounding boxes may be provided as additional \<geographicCoverage\> elements that describe other study or sampling areas (these may be associated with locational variables in a data entity if you are clever about it). The bounding boxes should be large enough to prevent casual users from identifying the sites (on the EDI map interface, for example).
 
-The `geographicDescription` attached to this bounding box should describe the location defined by the bounding boxes and include the text "Higher resolution spatial data for this data package can be obtained by contacting the Data Manager".
+Each \<geographicCoverage\> element should have a \<geographicDescription\> element associated that describes the location defined by the bounding boxes (or points, as the case may be) and include the text "Higher resolution spatial data for this data package can be obtained by contacting the Data Manager".
 
-### `taxonomicCoverage`
+### \<taxonomicCoverage\>
 
 No JRN policy yet.
 
-### `temporalCoverage`
+### \<temporalCoverage\>
 
-Provide the start and end date of the period over which the data were collected. At the `dataset` level this should include the data in all data entities (all .csv or other data files) that the EML document defines.
+Provide the start and end date of the period over which the data were collected. For \<dataset\> elements this should include the data in all data entities (all .csv or other data files) that the EML document defines.
 
-## `maintenance`
+## \<maintenance\>
 
 1. Describe the data package as "completed" if data collection has ended.
 2. Describe the data package as "ongoing" if data collection continues.
 3. If "ongoing", add the frequency of data collection for the package (hourly, daily, bimonthly, etc.)
 
-## `methods`
+## \<methods\>
 
 This is a required element that should include a detailed description of how the data were collected or otherwise derived (field procedures, laboratory analysis, data synthesis and analysis). It should be concise but sufficient to reproduce the resulting data entity in the package.
 
-Many Jornada packages have `methods` elements that refer to ancillary procedures documents, QA/QC specifications, data reduction scripts, etc. Whenever possible these should be preserved and archived as additional entities in the data package (or at least a link to another repository should be provided).
+Many Jornada packages have \<methods\> elements that refer to ancillary procedures documents, QA/QC specifications, data reduction scripts, etc. Whenever possible these should be preserved and archived as additional data entities in the data package (or at least a link to another repository should be provided).
 
-If needed `methods` elements can be defined for individual data entities (/eml:eml/dataset/[entity]/methods). A heirarchy of additional elements, such as `instrument`, `sampling`, `methodStep`, `qualityControl`, can be also defined within each `methods` element. The GCE Toolbox+ does some of this for us with Jornada met data. In general though, descriptive text with optional pointers to other methods documentation is usually adequate.
+If needed \<methods\> elements can be defined for individual data entities (`/eml:eml/dataset/[entity]/methods`). A hierarchy of additional elements, such as \<instrument\>, \<sampling\>, \<methodStep\>, \<qualityControl\>, can be also defined within each \<methods\> element. The GCE Toolbox+ does some of this for us with Jornada met data. In general though, descriptive text with optional pointers to other methods documentation is usually adequate.
 
-## `project`
+## \<project\>
 
-Some Jornada data packages have this element, but it is not required and there are no standards for it (that I am aware of).
+Some Jornada data packages have this element, but it is not required and there are no standards for it (???that I am aware of).
 
 ## Data entities
 
 These define the actual data files in the package (.csv files, rasters, etc). There can be more than one in a package.
 
-Several possible elements are used to define individual data entities in a `dataset`. These include `dataTable`, `spatialRaster`, `spatialVector`, `storedProcedure`, `view`, and `otherEntitymay`. They must contain other elements that describe the data they contain (the EntityGroup tree). The most important of these, for us, is the `attributeList` that defines the variables in a `dataTable` entity, since most Jornada data is tabular.
+Several possible elements are used to define individual data entities within a \<dataset\>. These include \<dataTable\>, \<spatialRaster\>, \<spatialVector\>, \<storedProcedure\>, \<view\>, and \<otherEntity\>. Each of these must contain other elements that describe the data they contain (the EntityGroup tree). The most important of these, for us, is the \<attributeList\> that defines the variables in a \<dataTable\> entity, since most Jornada data is tabular.
 
-I'm not aware of any Jornada-specific metadata standards for data entities. Use EML best practices.
+There are not any Jornada-specific metadata standards for data entities (???) or the elements they contain (\<attributeList\>). Use EML best practices.
 
 # Information management, metadata, and EML resources
 
