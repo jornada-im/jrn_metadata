@@ -35,9 +35,9 @@ The \<title\> element should contain a descriptive title that includes type of d
 
 ## Personnel and organization elements (\<creator\>, \<contact\>, etc.)
 
-There are a number of elements in this category grouped together here. They normally appear within the dataset element (`/eml:eml/dataset/creator`, `/eml:eml/dataset/contact`, etc)
+There are a number of elements in this category grouped together here. They normally appear within the \<dataset\> element (`/eml:eml/dataset/creator`, `/eml:eml/dataset/contact`, etc)
 
-At least one \<contact\> element must be supplied in every EML document. All EML documents should usually have at least one \<creator\> element, but exceptions can be made if this information has been lost in very old Jornada datasets.
+At least one \<contact\> element must be supplied in every EML document. All EML documents should usually have at least one \<creator\> element, but exceptions can be made if this information has been lost in very old Jornada data packags.
 
 ### \<contact\>
 
