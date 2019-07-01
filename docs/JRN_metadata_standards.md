@@ -1,7 +1,7 @@
 ---
 title: Jornada Metadata Standards for EML Creation
 author: The Information Management Team
-date: 28 June 2019
+date: 1 July 2019
 ...
 
 **If you edit this document please track your changes and send to Greg Maurer (gmaurer.jrn.lter@gmail.com).**
@@ -33,13 +33,15 @@ The sections below correspond to elements under the \<dataset\> element of a Jor
 
 **\* This is a required element.**
 
-The \<title\> element should contain a descriptive title that includes type of data collected, geographic location, and time range of the data (what, where, when). In general we use "Jornada" in some form as part of the geographic description. It may also be useful to include a project name or abbreviation if the package is part of a collection from a large project (NEAT, SMES, etc).
+The \<title\> element should contain a descriptive title that includes type of data collected, geographic location, and time range of the data (what, where, when). In general we use "Jornada" in some form as part of the geographic description. It may also be useful to include a project name or abbreviation if the package is part of a collection from a large project (NEAT, SMES, etc). 
+
+**Keep in mind that package titles are searchable and are a user's first point of contact when searching for data packages.**
 
 ## Personnel and organization elements (\<creator\>, \<contact\>, etc.)
 
 There are a number of elements in this category grouped together here. They normally appear within the \<dataset\> element (`/eml:eml/dataset/creator`, `/eml:eml/dataset/contact`, etc)
 
-At least one \<contact\> element must be supplied in every EML document. All EML documents should have at least one person in a \<creator\> element, but exceptions can be made if this information has been lost in very old Jornada data packags.
+At least one \<contact\> element must be supplied in every EML document. All EML documents should have at least one person in a \<creator\> element, but exceptions can be made if this information has been lost in very old Jornada data packages.
 
 ### \<contact\>\*
 
@@ -79,6 +81,8 @@ No JRN policy yet.
 
 A descriptive abstract of the data package, with enough context for a user to decide whether it is useful to them, should be included here.
 
+Include a brief statement about whether data collection is "ongoing" or "completed".
+
 **Keep in mind that package abstracts are used in full-text searches**
 
 ## \<keywordSet\>
@@ -117,9 +121,12 @@ Provide the start and end date of the period over which the data were collected.
 
 ## \<maintenance\>
 
+Describes whether data collection is ongoing or completed (in \<description\> element) and may include descriptions of the frequency of data and metadata changes (in \<frequency\> element).
+
 1. Describe the data package as "completed" if data collection has ended.
 2. Describe the data package as "ongoing" if data collection continues.
-3. If "ongoing", add the frequency of data collection for the package (hourly, daily, bimonthly, etc.)
+3. The \<frequency\> element under \<maintenance\> should describe the frequency (hourly, daily, bimonthly, etc.) of the data in any data entities in the package. This is especially important tabular time series.
+4. For "ongoing" data packages, add a description of how often metadata changes occur - such as when new data are QA/QC'd, appended to a data entity, and published - in the \<frequency\> element.
 
 ## \<methods\>
 
