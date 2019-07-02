@@ -1,7 +1,7 @@
 ---
 title: Jornada Metadata Standards for EML Creation
 author: The Information Management Team
-date: 1 July 2019
+date: 2 July 2019
 ...
 
 **If you edit this document please track your changes and send to Greg Maurer (gmaurer.jrn.lter@gmail.com).**
@@ -67,7 +67,7 @@ Creators are people with direct intellectual contributions to the data package a
 * Current responsible PIs
 * PostDocs, grad students, and other researchers (??? need to verify this)
 
-If for some reason the creator, or originating PI, for the data package is unknown, it is acceptable to list the Jornada Basin LTER as the organization in this element.
+If for some reason the creator, or originating PI, for the data package is unknown, it is acceptable to list the Jornada Basin LTER as an organization in this element.
 
 ### Other personnel and organization elements
 
@@ -75,7 +75,10 @@ Other personnel and organization elements, such as \<metadataProvider\>, \<assoc
 
 ## \<pubDate\>
 
-No JRN policy yet.
+Default for this at EDI and LTER sites appears to be that \<pubDate\> refers to the date of the latest metadata revision for a data package posted on EDI. 
+
+At JRN, this element has had other meanings (first date of publication), but there isn
+'t currently a consistent policy.
 
 ## \<abstract\>
 
@@ -90,7 +93,8 @@ Include a brief statement about whether data collection is "ongoing" or "complet
 Multiple \<keywordSet\> elements can be defined. Optionally they may be labeled with a specific vocabulary they are taken from using the \<keywordThesaurus\> tag. The Jornada Basin LTER uses these keyword thesauri:
 
 * [LTER Controlled Vocabulary](http://vocab.lternet.edu/vocab/vocab/index.php) - required to describe the subject matter of each data package
-* [Jornada specific thesauri](https://github.com/jornada-im/jrn_metadata_standards) - still in development
+* [Jornada specific thesauri](https://github.com/jornada-im/jrn_metadata_standards) - currently there are 2, which are still in development.
+* [LTER Core Areas](https://lternet.edu/core-research-areas/)
 * EML creators can also define keywords independent of these vocabularies (no \<keywordThesaurus\> tag).
 
 ## \<intellectualRights\>
@@ -113,7 +117,14 @@ Each \<geographicCoverage\> element should have a \<geographicDescription\> elem
 
 ### \<taxonomicCoverage\>
 
-No JRN policy yet.
+There are many systems for denoting taxonomic entities or groups, including local systems that are specific to the Jornada Basin LTER or its researchers. JRN data packages that contain taxonomic data (attributes of species or groups of species) should provide ways to link the taxonomic entities or groups in a \<dataset\> to modern, accepted taxonomic classifications at the _Genus species_ or finer levels.
+
+These links may be provided in the data entity itself (a "Genus_species" variable/attribute, for example) or by keys or coding systems that are separate from the data entity. If separated, these keys or coding systems should be provided as additional data entities in the data package, or as a link to other JRN EDI packages with this information.
+
+Some current Jornada taxonomic keys are:
+
+1. [Key to vascular plants in the Jornada Basin](https://portal.lternet.edu/nis/metadataviewer?packageid=knb-lter-jrn.210520001.1) (an EDI package)
+
 
 ### \<temporalCoverage\>
 
@@ -125,12 +136,12 @@ Describes whether data collection is ongoing or completed (in \<description\> el
 
 1. Describe the data package as "completed" if data collection has ended.
 2. Describe the data package as "ongoing" if data collection continues.
-3. The \<frequency\> element under \<maintenance\> should describe the frequency (hourly, daily, bimonthly, etc.) of the data in any data entities in the package. This is especially important tabular time series.
-4. For "ongoing" data packages, add a description of how often metadata changes occur - such as when new data are QA/QC'd, appended to a data entity, and published - in the \<frequency\> element.
+3. For "ongoing" data packages, a description of how often package revisions, including data and metadata changes, occur should be added to the \<frequency\> element under \<maintenance\>. For example, if new data are QA/QC'd, appended to a data entity, and published for a data package every month, the \<frequency\> element should describe these "monthly" revisions. 
+4. Optionally, and in addition to #3 above, the \<frequency\> element under \<maintenance\> can describe the frequency (hourly, daily, bimonthly, etc.) of the data in any data entities in the package. This may be especially important tabular time series.
 
 ## \<methods\>
 
-This is a required element that should include a detailed description of how the data were collected or otherwise derived (field procedures, laboratory analysis, data synthesis and analysis). It should be concise but sufficient to reproduce the resulting data entity in the package.
+This element should include a detailed description of how the data were collected or otherwise derived (field procedures, laboratory analysis, data synthesis and analysis). It should be concise but sufficient to reproduce the resulting data entity in the package.
 
 Many Jornada packages have \<methods\> elements that refer to ancillary procedures documents, QA/QC specifications, data reduction scripts, etc. Whenever possible these should be preserved and archived as additional data entities in the data package (or at least a link to another repository should be provided).
 
@@ -140,13 +151,15 @@ If needed \<methods\> elements can be defined for individual data entities (`/em
 
 Some Jornada data packages have this element, but it is not required and there are no standards for it (???that I am aware of).
 
+This element is created automatically by EMLassemblyline if a "PI" creator is listed.
+
 ## Data entities
 
 These define the actual data files in the package (.csv files, rasters, etc). There can be more than one in a package.
 
 Several possible elements are used to define individual data entities within a \<dataset\>. These include \<dataTable\>, \<spatialRaster\>, \<spatialVector\>, \<storedProcedure\>, \<view\>, and \<otherEntity\>. Each of these must contain other elements that describe the data they contain (the EntityGroup tree). The most important of these, for us, is the \<attributeList\> that defines the variables in a \<dataTable\> entity, since most Jornada data is tabular.
 
-There are not any Jornada-specific metadata standards for data entities (???) or the elements they contain (\<attributeList\>). Use EML best practices.
+There are not any Jornada-specific metadata standards for data entities (???maybe there should be) or the elements they contain (\<attributeList\>). Use EML best practices.
 
 # Information management, metadata, and EML resources
 
