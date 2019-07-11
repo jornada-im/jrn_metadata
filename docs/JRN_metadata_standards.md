@@ -1,7 +1,7 @@
 ---
 title: Jornada Metadata Standards for EML Creation
 author: The Information Management Team
-date: 2 July 2019
+date: 11 July 2019
 ...
 
 **If you edit this document please track your changes and send to Greg Maurer (gmaurer.jrn.lter@gmail.com).**
@@ -33,9 +33,16 @@ The sections below correspond to elements under the \<dataset\> element of a Jor
 
 **\* This is a required element.**
 
-The \<title\> element should contain a descriptive title that includes type of data collected, geographic location, and time range of the data (what, where, when). In general we use "Jornada" in some form as part of the geographic description. It may also be useful to include a project name or abbreviation if the package is part of a collection from a large project (NEAT, SMES, etc). 
+The \<title\> element should contain a descriptive title that includes type of data collected, geographic indicator, and temporal range of the data (what, where, when). **Keep in mind that package titles are searchable and are a user's first point of contact when searching for data packages.**
 
-**Keep in mind that package titles are searchable and are a user's first point of contact when searching for data packages.**
+Best practices:
+
+* For the title's geographic indicator all Jornada Basin LTER data packages should include "Jornada Basin LTER".
+* If the data come from an established study with a name or acronym, include the name or acronym in the title (NPP study, SMES, NEAT, etc.)
+* For the temporal range of completed data packages give the starting year of the data to the ending year; "2009-2015", for example.
+* For the temporal range of ongoing data packages there are 2 possibilities:
+    - Write the end of the temporal range as a year if data collection occurs less frequently than yearly ("2010-2018" for a package collected every 2 years).
+    - Write the end of the temporal range as "ongoing" if data collection occurs yearly or more frequently ("2010-ongoing" if data were last updated a year ago or less).
 
 ## Personnel and organization elements (\<creator\>, \<contact\>, etc.)
 
@@ -67,7 +74,7 @@ Creators are people with direct intellectual contributions to the data package a
 * Current responsible PIs
 * PostDocs, grad students, and other researchers (??? need to verify this)
 
-If for some reason the creator, or originating PI, for the data package is unknown, it is acceptable to list the Jornada Basin LTER as an organization in this element.
+If for some reason the creator, or originating PI, for the data package is unknown, it is acceptable to list the Jornada Basin LTER as an organization in the \<creator\> element.
 
 ### Other personnel and organization elements
 
@@ -82,11 +89,14 @@ At JRN, this element has had other meanings (first date of publication), but the
 
 ## \<abstract\>
 
-A descriptive abstract of the data package, with enough context for a user to decide whether it is useful to them, should be included here.
+A descriptive abstract of the data package, with enough context for a user to decide whether it is useful to them, should be included here. **Keep in mind that package abstracts are used in full-text searches**
 
-Include a brief statement about whether data collection is "ongoing" or "completed".
+Best practices:
 
-**Keep in mind that package abstracts are used in full-text searches**
+* Include a brief statement about whether data collection is "ongoing" or "completed".
+* Include a brief description of data collection and data package update frequency ("updated monthly/yearly/every spring").
+* Include information on whether the data were collected on the "Jornada Experimental Range", on the "CDRCC", or on both.
+
 
 ## \<keywordSet\>
 
@@ -96,6 +106,14 @@ Multiple \<keywordSet\> elements can be defined. Optionally they may be labeled 
 * [Jornada specific thesauri](https://github.com/jornada-im/jrn_metadata_standards) - currently there are 2, which are still in development.
 * [LTER Core Areas](https://lternet.edu/core-research-areas/)
 * EML creators can also define keywords independent of these vocabularies (no \<keywordThesaurus\> tag).
+
+From the Jornada thesauri, be sure to include:
+
+* A Jornada placename keyword
+* A Jornada study name keyword
+* The Jornada study ID as "study {NNN}", where {NNN}
+ is the 3 digit study ID within the package ID (middle 3 digits)
+* Either the "core" or "non-core" keyword
 
 ## \<intellectualRights\>
 
@@ -117,9 +135,9 @@ Each \<geographicCoverage\> element should have a \<geographicDescription\> elem
 
 ### \<taxonomicCoverage\>
 
-There are many systems for denoting taxonomic entities or groups, including local systems that are specific to the Jornada Basin LTER or its researchers. JRN data packages that contain taxonomic data (attributes of species or groups of species) should provide ways to link the taxonomic entities or groups in a \<dataset\> to modern, accepted taxonomic classifications at the _Genus species_ or finer levels.
+There are many systems for denoting taxonomic entities or groups, including local systems that are specific to the Jornada Basin LTER or its researchers. JRN data packages that contain taxonomic data (data attributes of species, groups of species, or other taxa) should provide ways to identify the taxonomic entities or groups in a \<dataset\> to modern, accepted taxonomic classifications at the _Genus species_ or finer levels.
 
-These links may be provided in the data entity itself (a "Genus_species" variable/attribute, for example) or by keys or coding systems that are separate from the data entity. If separated, these keys or coding systems should be provided as additional data entities in the data package, or as a link to other JRN EDI packages with this information.
+These links may be provided in a variable or category in the data entity itself (a "Genus_species" variable, or example), as long as they are properly attributed to an authority like ITIS or USDA PLANTS. Local (JRN specific) taxonomic keys or coding systems that appear in a data entity must be available to the data user. In these cases the keys or coding systems used should be described in the metadata and provided as either an additional data entity in the data package, or as a link to other JRN EDI packages with this information.
 
 Some current Jornada taxonomic keys are:
 
