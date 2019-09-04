@@ -1,7 +1,6 @@
 ---
 title: Jornada Metadata Standards for EML Creation
 author: The Information Management Team
-date: 11 July 2019
 ...
 
 **If you edit this document please track your changes and send to Greg Maurer (gmaurer.jrn.lter@gmail.com).**
@@ -84,8 +83,7 @@ Other personnel and organization elements, such as \<metadataProvider\>, \<assoc
 
 Default for this at EDI and LTER sites appears to be that \<pubDate\> refers to the date of the latest metadata revision for a data package posted on EDI. 
 
-At JRN, this element has had other meanings (first date of publication), but there isn
-'t currently a consistent policy.
+At JRN, this element has had other meanings (first date of publication), but there isn't currently a consistent policy.
 
 ## \<abstract\>
 
@@ -103,17 +101,21 @@ Best practices:
 Multiple \<keywordSet\> elements can be defined. Optionally they may be labeled with a specific vocabulary they are taken from using the \<keywordThesaurus\> tag. The Jornada Basin LTER uses these keyword thesauri:
 
 * [LTER Controlled Vocabulary](http://vocab.lternet.edu/vocab/vocab/index.php) - required to describe the subject matter of each data package
-* [Jornada specific thesauri](https://github.com/jornada-im/jrn_metadata_standards) - currently there are 2, which are still in development.
+* [Jornada-specific thesauri](https://github.com/jornada-im/jrn_metadata_standards) - currently there are 3, which are still in development.
+  - "JRN Dataset Keywords" include subject matter, funding, time span, and other JRN LTER specific terms.
+  - "Jornada Project Names" include the descriptive names of abbreviations of studies or projects taking place in Jornada Basin (affiliated with JRN LTER or not)
+  - "Jornada Place Names" include the place names of important study locations or geographic features. These overlap with the "Jornada Place Names" in many cases.
 * [LTER Core Areas](https://lternet.edu/core-research-areas/)
 * EML creators can also define keywords independent of these vocabularies (no \<keywordThesaurus\> tag).
 
-From the Jornada thesauri, be sure to include:
+From the Jornada-specific thesauri, be sure to include:
 
-* A Jornada placename keyword
-* A Jornada study name keyword
-* The Jornada study ID as "study {NNN}", where {NNN}
- is the 3 digit study ID within the package ID (middle 3 digits)
-* Either the "core" or "non-core" keyword
+* At least one subject matter term from the "JRN Dataset Keyword" list.
+* Any relevant terms from the "Jornada Project Names" list
+* Any relevant placenames from the "Jornada Place Names" list
+* The Jornada study ID as "study {NNN}", where {NNN} is the 3 digit study ID within the package ID (middle 3 digits). List this as a "Jornada Project Name" keyword.
+
+The keywords "core" and "signature" may be added to EML documents, but the plan at this point is to keep a separate list of packages with these designations and then cross-reference those lists during searches of the JRN data catalog.
 
 ## \<intellectualRights\>
 
