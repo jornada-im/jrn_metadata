@@ -43,7 +43,7 @@ Best practices:
     - Write the end of the temporal range as a year if data collection occurs less frequently than yearly ("2010-2018" for a package collected every 2 years).
     - Write the end of the temporal range as "ongoing" if data collection occurs yearly or more frequently ("2010-ongoing" if data were last updated a year ago or less).
 
-## Personnel and organization elements (\<creator\>, \<contact\>, etc.)
+## Personnel and organization elements (\<creator\>, \<project\>, etc.)
 
 There are a number of elements in this category grouped together here. They normally appear within the \<dataset\> element (`/eml:eml/dataset/creator`, `/eml:eml/dataset/contact`, etc)
 
@@ -66,14 +66,22 @@ No other contacts are defined.
 
 **\*This is a required element.**
 
-Creators are people with direct intellectual contributions to the data package and so could include PIs, postdocs, students, and other researchers. There can be multiple <creator> elements in a Jornada EML document. These should include:
+Creators are people with direct intellectual contributions to the data package and so could include PIs, postdocs, students, and other researchers. There can be multiple \<creator\> elements in a Jornada EML document. These should include:
 
 * Original PIs
 * Former responsible PIs
 * Current responsible PIs
 * PostDocs, grad students, and other researchers (??? need to verify this)
 
-If for some reason the creator, or originating PI, for the data package is unknown, it is acceptable to list the Jornada Basin LTER as an organization in the \<creator\> element.
+If for some reason the original PI for the data package is unknown, it is acceptable to list the Jornada Basin LTER as an organization in the \<creator\> element.
+
+### \<project\>
+
+This element should be included in EML for all JRN data packages and should contain the \<title\>, \<organization\>, \<funding\>, and \<personnel\> sub-elements within it. List the Jornada Basin LTER as the project \<title\>, New Mexico State University as \<organization\>, and the current responsible PI for the data package as the \<personnel\>. The \<funding\> element should include the NSF award number (DEB-1832194 or similar) that was active when the project was initiated.
+
+This element is created automatically by EMLassemblyline if a personnel entry is listed with the role "PI".
+
+*Provisional change*: If there is no current responsible PI for a completed package, it may be acceptable to omit the \<project\>\<personnel\> element as long as the other elements are complete. (??? need to verify this is ok)
 
 ### Other personnel and organization elements
 
@@ -167,11 +175,7 @@ Many Jornada packages have \<methods\> elements that refer to ancillary procedur
 
 If needed \<methods\> elements can be defined for individual data entities (`/eml:eml/dataset/[entity]/methods`). A hierarchy of additional elements, such as \<instrument\>, \<sampling\>, \<methodStep\>, \<qualityControl\>, can be also defined within each \<methods\> element. The GCE Toolbox+ does some of this for us with Jornada met data. In general though, descriptive text with optional pointers to other methods documentation is usually adequate.
 
-## \<project\>
 
-Some Jornada data packages have this element, but it is not required and there are no standards for it (???that I am aware of).
-
-This element is created automatically by EMLassemblyline if a "PI" creator is listed.
 
 ## Data entities
 
