@@ -1,4 +1,6 @@
-# jrn_metadata_standards
+# jrn_metadata
+
+**NOTE:** This repository has been merged with the jornada-im/documentation repository [here](https://github.com/jornada-im/documentation). It is now an archive only.
 
 A repository of documents about best practices and standards for metadata creation at Jornada Basin LTER.
 
